@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Haz match con tu evolución · #ForumEvoluciona – Instituto Forum</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#0D2156;--navy2:#15307A;--blue:#2150C8;--or:#FC4F0B;--or2:#FF8A4C;--ink:#1E2740;--paper:#EEF2FB;--line:#D5DCEC;--ease:cubic-bezier(.22,.8,.26,1);--font:"Montserrat","Avenir Next","Segoe UI",Arial,system-ui,sans-serif;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:calc(84px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--navy);color:var(--ink);font:500 16px/1.55 var(--font);-webkit-font-smoothing:antialiased}
+button{font-family:inherit;cursor:pointer;-webkit-tap-highlight-color:transparent}img{max-width:100%}
+:focus-visible{outline:3px solid var(--or2);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+section{position:relative;padding:92px 0}
+h2{font-size:clamp(28px,4vw,44px);line-height:1.08;letter-spacing:-.02em;margin:0 0 12px;font-weight:800}
+.sub{margin:0 0 34px;max-width:60ch;opacity:.85}
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);background:rgba(13,33,86,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.12)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{color:#fff;text-decoration:none;font-weight:800;font-size:18px;letter-spacing:-.01em}.brand b{color:var(--or2)}
+#menu{position:relative;display:flex;gap:6px}
+#menu a{color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:10px 16px;border-radius:99px;transition:background .25s,color .25s}
+#menu a:hover{background:rgba(255,255,255,.12)}
+#menu a.on{color:var(--or2)}
+#menu a.lock{opacity:.55}
+#menu a.lock::after{content:" 🔒";font-size:11px}
+#ind{position:absolute;bottom:0;height:3px;width:0;background:var(--or);border-radius:3px;transition:left .45s var(--ease),width .45s var(--ease)}
+#burger{display:none;background:var(--or);border:0;border-radius:12px;width:44px;height:44px;padding:0}
+#burger i{display:block;width:20px;height:2.5px;background:#fff;margin:4px auto;border-radius:2px;transition:transform .3s,opacity .3s}
+.nav.open #burger i:nth-child(1){transform:translateY(6.5px) rotate(45deg)}.nav.open #burger i:nth-child(2){opacity:0}.nav.open #burger i:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;border:0;border-radius:99px;padding:16px 32px;font-weight:800;font-size:15px;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,var(--or),var(--or2));box-shadow:0 12px 28px -10px rgba(252,79,11,.8);transition:transform .25s var(--ease),box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 30px -10px rgba(252,79,11,.9)}
+.btn.alt{background:#fff;color:var(--navy);box-shadow:none}
+/* hero */
+#inicio{min-height:100vh;min-height:100dvh;display:flex;align-items:center;padding:110px 0 70px;background:radial-gradient(900px 500px at 85% 10%,rgba(33,80,200,.7),transparent 70%),linear-gradient(135deg,var(--navy),#1B3A8C);color:#fff;overflow:hidden}
+.hwrap{position:relative;display:inline-block;padding:10px 0 14px;margin:14px 0 10px}#inicio .hi,#inicio .lead,#inicio .more{position:relative;z-index:2}
+.hwrap h1{position:relative;z-index:1}
+.hring{position:absolute;left:-11%;top:-24%;width:124%;height:150%;z-index:0;overflow:visible;pointer-events:none}
+.hring path{fill:none;stroke-linecap:round}
+.hring .track{stroke:var(--or);stroke-opacity:.25;stroke-width:7;stroke-dasharray:100;stroke-dashoffset:100;animation:ringIn 3s .2s var(--ease) forwards}
+.hring .arc{stroke:var(--or);stroke-width:14;stroke-dasharray:30 70;opacity:0;animation:ringFade 1.2s 1.4s ease forwards,ringRun 10s linear infinite}
+.hring .dot{fill:var(--or);opacity:0;animation:ringFade 1.2s 1.4s ease forwards;filter:drop-shadow(0 0 8px rgba(252,79,11,.65))}
+@keyframes ringIn{to{stroke-dashoffset:0}}
+@keyframes ringFade{to{opacity:1}}
+@keyframes ringRun{from{stroke-dashoffset:0}to{stroke-dashoffset:-100}}
+#inicio .wrap{position:relative;width:100%}
+h1{margin:0;font-size:clamp(44px,10.5vw,120px);line-height:.9;letter-spacing:-.04em;font-weight:800}
+h1 span{display:block;font-size:.46em;letter-spacing:.12em;font-weight:600;margin-top:.3em;color:var(--or2)}
+.hi{margin:0 0 16px;font-weight:700;font-size:clamp(17px,2.4vw,22px);opacity:.92}.chips{display:flex;gap:10px;flex-wrap:wrap;margin:0 0 32px;padding:0;list-style:none}.chips li{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.24);border-radius:99px;padding:9px 16px;font-weight:700;font-size:14px}
+.lead{font-size:clamp(19px,2.3vw,24px);font-weight:700;max-width:30ch;margin:32px 0 12px;line-height:1.3}
+.intro{max-width:54ch;opacity:.88;margin:0 0 34px}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+/* simulador */
+#simulador{background:linear-gradient(180deg,#14297A,#0D2156);color:#fff}
+.grid{display:grid;grid-template-columns:350px 1fr;gap:24px;align-items:start}
+.hud{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:24px;position:sticky;top:90px}
+.hud h3{margin:0 0 14px;font-size:15px}
+.meter{margin-bottom:14px}.meter div:first-child{display:flex;justify-content:space-between;font-weight:700;font-size:14px;margin-bottom:5px}
+.mbar{height:10px;border-radius:9px;background:rgba(255,255,255,.14);overflow:hidden}.mbar i{display:block;height:100%;width:50%;border-radius:9px;background:linear-gradient(90deg,var(--or),var(--or2));transition:width .9s var(--ease)}
+.lbars{display:grid;gap:9px;margin-top:6px}.lb{display:grid;grid-template-columns:96px 1fr 40px;gap:10px;align-items:center;font-size:13px;font-weight:700}.lb b{text-align:right;color:var(--navy)}.lb .mbar{height:9px}
+.stage{min-height:max(420px,calc(100dvh - 160px));overflow-anchor:none}
+.ready,.done{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:24px;padding:40px 34px}
+.ready p,.done p{max-width:48ch;opacity:.9}
+.tag{display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:800;margin-bottom:12px}.tag span:last-child{white-space:nowrap}.tag b{color:var(--or2)}
+.prog{height:8px;border-radius:9px;background:rgba(255,255,255,.14);overflow:hidden;margin-bottom:20px}.prog i{display:block;height:100%;width:0;background:var(--or);transition:width .7s var(--ease)}
+.case{background:#fff;color:var(--ink);border-radius:24px;padding:28px 30px;border-top:7px solid var(--or)}
+.case small{display:inline-block;background:#FFF1EA;color:var(--or);font-weight:800;font-size:13px;padding:5px 12px;border-radius:99px;margin-bottom:10px}
+.case h3{margin:0 0 12px;color:var(--navy);font-size:clamp(21px,2.6vw,27px);line-height:1.2}
+.case p{margin:0 0 10px;font-size:15.5px}.case .dil{color:var(--navy);font-weight:700;border-top:1px dashed var(--line);padding-top:12px}
+.opts{display:grid;gap:11px;margin-top:16px}@media(min-width:1000px){.opts{grid-template-columns:1fr 1fr}}
+.opt{display:grid;grid-template-columns:40px 1fr;gap:14px;text-align:left;color:#fff;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.22);border-radius:16px;padding:16px 18px;transition:background .25s,border-color .25s,transform .25s var(--ease)}
+.opt .k{display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.16);font-weight:800}
+.opt strong{display:block;font-size:16px;line-height:1.25;margin-bottom:3px}.opt span span{font-size:14.5px;opacity:.88;font-weight:500}
+@media(hover:hover){.opt:hover{background:rgba(252,79,11,.22);border-color:var(--or);transform:translateX(5px)}}
+.opt.sel{background:var(--or);border-color:var(--or);transform:none}.opt.sel .k{background:#fff;color:var(--or)}
+.opts.lock .opt{pointer-events:none}.opts.lock .opt:not(.sel){opacity:.4}
+.fb{margin-top:16px;background:#fff;color:var(--ink);border-left:7px solid var(--or);border-radius:16px;padding:18px 22px;animation:in .5s var(--ease)}
+.fb b{color:var(--navy);display:block;margin-bottom:4px}.fb .btn{margin-top:12px;padding:13px 26px}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+/* diagnóstico */
+#perfil{background:#fff;color:var(--ink)}#perfil h2{color:var(--navy)}
+.band{height:12px;background:linear-gradient(90deg,var(--or),var(--or2))}
+.phero{display:grid;grid-template-columns:minmax(0,500px) 1fr;gap:40px;align-items:center;margin-bottom:30px}
+.profile{background:radial-gradient(420px 300px at 100% 0%,rgba(252,79,11,.35),transparent 70%),radial-gradient(500px 360px at 0% 100%,rgba(33,80,200,.9),transparent 70%),linear-gradient(160deg,#0B1B49,var(--navy) 45%,#1A3C9E);color:#fff;border-radius:30px;padding:30px 28px 24px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:20px;box-shadow:0 30px 60px -30px rgba(13,33,86,.8);aspect-ratio:4/5}
+.ptop{display:flex;justify-content:space-between;align-items:center;gap:10px;position:relative;z-index:1}
+.ptag{background:var(--or);color:#fff;font-weight:800;font-size:13px;padding:7px 13px;border-radius:99px;letter-spacing:.01em}
+.pme{display:block;font-size:13px;font-weight:700;color:#C5D2F5}
+.ptops{display:grid;gap:9px;position:relative;z-index:1}
+.pt{display:grid;grid-template-columns:1fr 44px;gap:4px 10px;align-items:center;font-size:13px;font-weight:700}
+.pt .pb{grid-column:1/-1;height:8px;border-radius:8px;background:rgba(255,255,255,.16);overflow:hidden}.pt .pb i{display:block;height:100%;border-radius:8px;background:linear-gradient(90deg,var(--or),var(--or2))}
+.pt b{text-align:right;color:var(--or2)}
+.pfoot{margin-top:auto;display:flex;justify-content:space-between;align-items:end;gap:10px;border-top:1px solid rgba(255,255,255,.18);padding-top:14px;position:relative;z-index:1}
+.pfoot b{font-size:15px;color:#fff}.pfoot span{font-size:11.5px;color:#C5D2F5;font-weight:600;text-align:right}
+.pdesc{font-size:clamp(17px,1.8vw,20px);line-height:1.5;color:var(--navy);font-weight:500;margin:0 0 18px}
+
+.profile small{color:#C5D2F5;font-weight:700;font-size:14px}.profile h3{margin:4px 0 0;font-size:clamp(28px,3.4vw,38px);line-height:1.08;letter-spacing:-.02em;color:#fff}.profile p{max-width:60ch;color:#E3E9F8;margin:14px 0 0}
+.profile svg{position:absolute;right:-150px;top:-86px;width:360px;z-index:0;opacity:.9}.pmain,.kpis{position:relative;z-index:1}.profile ellipse{fill:none;stroke:var(--or);stroke-width:8}
+.phead{display:flex;justify-content:space-between;align-items:end;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.phead h2{margin:0;font-size:clamp(34px,6.4vw,64px);line-height:1.02;letter-spacing:-.03em;max-width:16ch}
+.phead span{color:#59627A;font-size:14px;font-weight:600}
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.kpi{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:16px 16px 18px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.kpi small{font-size:12.5px}.kpi .kv{font-size:clamp(34px,4.6vw,46px);font-weight:800;line-height:1;color:var(--or2);letter-spacing:-.02em}
+.kpi b{font-size:14px;line-height:1.3;color:#fff;overflow-wrap:anywhere}
+.bsub{margin:-6px 0 16px;color:#4a5370;font-size:15px}
+.chart{background:#fff;border:1px solid var(--line);border-radius:22px;padding:26px 28px 12px;box-shadow:0 14px 34px -24px rgba(13,33,86,.45)}
+.bar-row{display:grid;grid-template-columns:34px minmax(190px,300px) 1fr 58px;grid-template-areas:"rk n bar pct";gap:8px 16px;align-items:center;padding:12px 0;border-bottom:1px solid #EDF0F7}.bar-row:last-child{border-bottom:0}
+.rk{grid-area:rk;display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--paper);color:var(--navy);font-weight:800;font-size:14px}.bar-row.top .rk{background:var(--or);color:#fff}
+.bar-row .n small{display:block;font-weight:500;color:#59627A;font-size:12.5px;line-height:1.35;margin-top:2px}.bar-row .n{grid-area:n}.bar-row .bar{grid-area:bar}.bar-row .pct{grid-area:pct;font-size:18px}
+.bar-row .n{font-weight:800;color:var(--navy);font-size:15.5px;line-height:1.25}.bar{height:18px;background:#E6EAF4;border-radius:9px;overflow:hidden}.bar i{display:block;height:100%;width:0;background:var(--navy2);border-radius:9px;transition:width 1.1s var(--ease)}.bar-row.top .bar i{background:var(--or)}.pct{font-weight:800;color:var(--navy);text-align:right}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:10px}
+.c{background:var(--paper);border-radius:16px;padding:18px}.c b{color:var(--navy);display:block;margin-bottom:5px}.c p{margin:0;font-size:14.5px}
+.lv{float:right;font-size:12px;font-weight:800;border-radius:99px;padding:3px 10px;background:var(--navy);color:#fff}.lv.alto{background:var(--or)}.lv.bajo{background:#fff;color:var(--navy);border:1px solid var(--line)}
+.idx{display:flex;gap:16px;align-items:center;border:2px solid var(--line);border-radius:16px;padding:16px 20px;margin:12px 0}.idx .num{font-size:42px;font-weight:800;color:var(--or)}
+
+.disc{font-size:13px;color:#59627A;max-width:75ch;margin-top:26px}
+#programas{padding-top:20px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pcard{position:relative;background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px 22px 20px;display:flex;flex-direction:column;gap:10px;box-shadow:0 16px 36px -26px rgba(13,33,86,.55);overflow:hidden}
+.pcard::before{content:"";position:absolute;inset:0 0 auto 0;height:6px;background:var(--or)}
+.pcard:nth-child(2)::before{background:var(--navy2)}.pcard:nth-child(3)::before{background:linear-gradient(90deg,var(--navy2),var(--or))}
+.ptop2{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.pnum{font-size:32px;font-weight:800;line-height:1;color:var(--or)}.pcard:nth-child(2) .pnum{color:var(--navy2)}
+.plab{font-size:12px;font-weight:800;color:var(--navy);background:var(--paper);border-radius:99px;padding:6px 11px;text-align:right}
+.ptype{font-size:13px;font-weight:700;color:#59627A;margin-top:4px}
+.pcard h3{margin:0;font-size:19px;line-height:1.25;color:var(--navy)}
+.pcard p{margin:0;font-size:15px;line-height:1.5;color:#222}
+.pmeta{margin-top:auto;padding-top:12px;border-top:1px dashed var(--line);display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:space-between;font-size:13px;color:#59627A;font-weight:600}
+.pmeta a{color:var(--or);font-weight:800;text-decoration:none;white-space:nowrap}.pmeta a:hover{text-decoration:underline}
+#cierre{padding-top:10px}
+.cta{position:relative;overflow:hidden;border-radius:30px;padding:56px 48px;text-align:center;color:#fff;background:radial-gradient(520px 300px at 100% 0%,rgba(252,79,11,.35),transparent 70%),linear-gradient(150deg,#0B1B49,var(--navy) 50%,#1A3C9E);box-shadow:0 30px 60px -32px rgba(13,33,86,.8)}
+.cta-ring{position:absolute;width:520px;left:-170px;bottom:-110px;opacity:.55}.cta-ring ellipse{fill:none;stroke:var(--or);stroke-width:6}
+.cta-ico{position:relative;width:46px;height:46px;color:var(--or2);margin:0 auto 14px;display:block}
+.cta-text{position:relative;margin:0 auto;max-width:28ch;font-size:clamp(24px,3.4vw,38px);line-height:1.25;font-weight:800;letter-spacing:-.015em}
+.hash{display:inline-block;background:var(--or);color:#fff;border-radius:12px;padding:0 .3em;margin:.18em .05em 0;white-space:nowrap}
+.handle{position:relative;margin:26px 0 0;font-size:clamp(26px,4vw,44px);font-weight:800;color:var(--or2);letter-spacing:-.01em}
+.cta-back{position:relative;display:inline-block;margin-top:18px;color:#C5D2F5;font-weight:700;font-size:14px}
+.blk{margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}.blk>h3{margin:0 0 14px;font-size:22px;line-height:1.25;color:var(--navy)}
+.fin{display:flex;gap:12px;flex-wrap:wrap}.fin span{background:var(--paper);border-radius:99px;padding:8px 16px;font-weight:700;color:var(--navy);font-size:14px}.fin b{color:var(--or)}
+[hidden]{display:none!important}
+@media(max-width:900px){.grid,.phero,.pgrid{grid-template-columns:1fr}.cta{padding:40px 22px;border-radius:24px}.cta-ring{width:360px}.hash{border-radius:9px}.phero{gap:22px}.profile{aspect-ratio:auto;min-height:0}.hud{position:static;order:2}section{padding:72px 0}}
+@media(max-width:760px){
+#burger{display:block}
+#menu{position:fixed;inset:0;background:var(--navy);flex-direction:column;justify-content:center;align-items:center;gap:8px;opacity:0;pointer-events:none;transition:opacity .35s;padding-top:env(safe-area-inset-top,0px)}
+.nav.open #menu{opacity:1;pointer-events:auto}
+#menu a{font-size:26px;opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s var(--ease),background .25s}
+.nav.open #menu a{opacity:1;transform:none}.nav.open #menu a:nth-child(2){transition-delay:.06s}.nav.open #menu a:nth-child(3){transition-delay:.12s}.nav.open #menu a:nth-child(4){transition-delay:.18s}
+#ind{display:none}.nav .wrap{position:relative;z-index:2}
+.bar-row{grid-template-columns:30px 1fr 50px;grid-template-areas:"rk n n" "rk bar pct";gap:6px 12px}.rk{width:28px;height:28px;font-size:13px}.chart{padding:14px 16px 4px;border-radius:18px}.profile{padding:24px 20px 20px;border-radius:24px;gap:18px}.kpi{padding:14px 12px 16px}.profile svg{width:280px;top:-78px;right:-150px}.kpi .kv{font-size:34px}.kpi b{font-size:13px}.btn{width:100%;justify-content:center}.ready,.done{padding:28px 22px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}.hring .track{animation:none;stroke-dashoffset:0}.hring .arc,.hring .dot{animation:none;opacity:1}}
+@media print{@page{size:A4;margin:14mm}.nav,#inicio,#simulador,.act{display:none!important}body{background:#fff}#perfil{padding:0}.cta,.hash,.pcard::before,.profile,.ptag,.pt .pb i,.kpi,.rk,.c,.bar i,.band,.idx,.lv{-webkit-print-color-adjust:exact;print-color-adjust:exact}.c,.ch li,.bar-row,.profile,.idx{break-inside:avoid}.blk{margin-top:20px;padding-top:18px}.blk>h3{break-after:avoid}}
+</style>
+<style id="light">
+body{background:#fff;color:#111}
+h2,h3{color:var(--navy)}
+h2::after{content:"";display:block;width:56px;height:5px;border-radius:5px;background:var(--or);margin-top:10px}
+.nav{background:rgba(255,255,255,.95);border-bottom:1px solid var(--line)}
+.brand{color:var(--navy);font-size:16px}.brand b{color:var(--or)}
+#menu a{color:var(--navy)}#menu a:hover{background:var(--paper)}#menu a.on{color:var(--or)}
+.btn{min-height:52px;justify-content:center;border:0;color:#fff;background:var(--or);box-shadow:0 5px 0 var(--navy2);transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(2px);box-shadow:0 3px 0 var(--navy2)}
+.btn.alt{background:#fff;color:var(--navy);border:2px solid var(--navy);box-shadow:none}
+#inicio,#simulador,#perfil{background:#fff;color:#111}
+#inicio{padding:96px 0 120px;overflow:hidden}
+h1{color:var(--navy);font-size:clamp(40px,10vw,104px);line-height:.98;overflow-wrap:break-word;max-width:12ch}h1 span{color:var(--or);font-size:.42em;letter-spacing:.04em;font-weight:700;margin-top:.45em}
+.hi{color:#111;opacity:1}.lead{color:var(--navy);max-width:none;margin:22px 0 22px}
+.fixcta{display:flex;margin:0 0 30px}
+.more .intro{color:#111;opacity:1;font-size:16px;margin:0 0 10px;max-width:46ch}
+.note{font-size:13px;color:#4a5370;margin:14px 0 0}
+.sub{color:#111;opacity:1;font-size:16px}
+.hud{background:var(--paper);border:1px solid var(--line);color:#111}.hud h3{font-size:14px}
+.mbar{background:#DDE3F1}
+.ready,.done{background:var(--paper);border:1px solid var(--line);color:#111}.ready h3,.done h3{color:var(--navy)}
+.ready p,.done p{opacity:1;font-size:16px}
+.grid.over{grid-template-columns:1fr}.grid.over .hud{display:none}
+.done{border-top:7px solid var(--or)}.dk{display:inline-block;background:#FFF1EA;color:var(--or);font-weight:800;font-size:13px;padding:5px 12px;border-radius:99px;margin-bottom:12px}
+.dh{margin:0 0 8px;font-size:clamp(26px,4.4vw,40px);line-height:1.1;letter-spacing:-.02em}
+.dind{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 18px}
+.di{background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:6px}
+.di .dn{font-weight:800;color:var(--navy);font-size:14px}.di .dv{font-size:40px;font-weight:800;line-height:1;color:var(--navy)}.di .dv small{font-size:15px;color:#59627A;font-weight:700}
+.di .ds{font-size:13px;font-weight:700}.di.up .ds{color:#0F7A4A}.di.eq .ds{color:var(--navy2)}.di.low .ds{color:#C2410C}.di.low .mbar i{background:#C2410C}
+.dnext{font-weight:700;color:var(--navy)!important;margin:0 0 14px}
+@media(max-width:600px){.dind{grid-template-columns:1fr}.di{display:grid;grid-template-columns:1fr auto;align-items:end}.di .mbar,.di .ds{grid-column:1/-1}.di .dv{font-size:34px}}
+.tag{color:#111}.tag b{color:var(--or)}.prog{background:#DDE3F1}
+.case{border:1px solid var(--line);border-top:7px solid var(--or);box-shadow:0 10px 26px -16px rgba(13,33,86,.4)}.case p{font-size:16px}
+.opt{color:#111;background:#fff;border:2px solid var(--navy2)}.opt .k{background:var(--navy);color:#fff}.opt span span{color:#222;opacity:1;font-size:15px}
+@media(hover:hover){.opt:hover{background:#FFF1EA;border-color:var(--or)}}
+.opt.sel{background:var(--or);border-color:var(--or);color:#fff}.opt.sel .k{background:#fff;color:var(--or)}.opt.sel span span{color:#fff}
+.fb{background:#F7F9FE;border:1px solid var(--line);border-left:7px solid var(--or)}
+.c{border:1px solid var(--line);background:#F7F9FE}
+.c p{font-size:15.5px}.disc{color:#444}
+@media(max-width:760px){
+#menu{background:#fff}
+.fixcta{position:fixed;left:0;right:0;bottom:0;z-index:40;margin:0;padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.97);border-top:1px solid var(--line);transition:transform .3s,opacity .3s}
+.fixcta.off{transform:translateY(110%);opacity:0;pointer-events:none}
+.fixcta .btn{font-size:16px;min-height:56px}
+}
+@media(min-width:761px){.fixcta .btn{width:auto}}
+</style>
+</head>
+<body>
+<header class="nav" id="nav"><div class="wrap">
+  <a class="brand" href="#inicio">Forum <b>#ForumEvoluciona</b></a>
+  <nav id="menu" aria-label="Principal"><a href="#inicio">Inicio</a><a href="#simulador">Simulador</a><a href="#perfil" class="lock" id="navDx">Mi perfil de evolución</a><i id="ind"></i></nav>
+  <button id="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
+</div></header>
+
+<main>
+<section id="inicio">
+<div class="wrap"><p class="hi">Te damos la bienvenida a</p>
+<div class="hwrap"><svg class="hring" id="hring" viewBox="0 0 600 260" preserveAspectRatio="none" aria-hidden="true"><g transform="rotate(-6 300 130)"><path class="track" pathLength="100" d="M24,130 a276,104 0 1,0 552,0 a276,104 0 1,0 -552,0"/><path class="arc" id="ringPath" pathLength="100" d="M24,130 a276,104 0 1,0 552,0 a276,104 0 1,0 -552,0"/><circle class="dot" r="13"><animateMotion dur="10s" begin="-3s" repeatCount="indefinite"><mpath href="#ringPath"/></animateMotion></circle></g></svg><h1>Haz match con tu evolución<span>#ForumEvoluciona</span></h1></div>
+<p class="lead">Descubre cómo evoluciona tu liderazgo.</p>
+<div class="fixcta" id="fixcta"><button class="btn" id="heroStart">Descubrir mi evolución</button></div>
+<div class="more"><p class="intro">Dirigirás una empresa en crisis y tomarás 4 decisiones.</p><p class="intro">Verás cambiar el clima, la caja y la reputación en vivo.</p><p class="intro">Al final recibirás tu perfil y los programas que mejor complementan tu evolución.</p>
+<p class="note">Dura unos 5 minutos. La empresa y las cifras son ficticias.</p></div></div></section>
+
+<section id="simulador"><div class="wrap">
+<h2>Simulador de decisiones</h2><p class="sub">Tus decisiones mueven los indicadores y dibujan tu perfil.</p>
+<div class="grid" id="simGrid">
+ <aside class="hud" aria-label="Indicadores de la empresa"><h3>Grupo Altamira en vivo</h3>
+  <div class="meter"><div><span>Clima laboral</span><span id="v0">50</span></div><div class="mbar"><i id="m0"></i></div></div>
+  <div class="meter"><div><span>Caja</span><span id="v1">50</span></div><div class="mbar"><i id="m1"></i></div></div>
+  <div class="meter"><div><span>Reputación</span><span id="v2">50</span></div><div class="mbar"><i id="m2"></i></div></div>
+  <h3 style="margin-top:20px">Tus competencias en vivo</h3><div class="lbars" id="liveBars"></div></aside>
+ <div class="stage" id="stage" aria-live="polite">
+  <div class="ready" id="vReady"><h3 style="margin:0 0 10px;font-size:26px">Eres gerente general de Grupo Altamira</h3><p>Una empresa de distribución con 900 colaboradores. Tomarás 4 decisiones. No hay respuestas “correctas”.</p><button class="btn" id="startBtn">Empezar</button></div>
+  <div id="vPlay" hidden><div class="tag"><span id="theme"></span><span id="rtag"></span></div><div class="prog"><i id="pf"></i></div>
+   <article class="case"><small id="cTheme"></small><h3 id="cTitle"></h3><div id="cCtx"></div><p class="dil" id="cDil"></p></article>
+   <div class="opts" id="opts" role="group" aria-label="Opciones de decisión"></div><div id="fb"></div></div>
+  <div class="done" id="vDone" hidden><small class="dk">Resultado de tus decisiones</small><h3 class="dh">Así quedó la empresa con tus decisiones</h3><p>Grupo Altamira empezó con 50/100 en cada indicador. Este es el resultado después de tus 4 decisiones.</p><div class="dind" id="doneInd"></div><p class="dnext">Ahora descubre qué dicen tus decisiones de ti.</p><button class="btn" id="seeDx">Ver mi perfil de evolución</button></div>
+ </div></div></div></section>
+
+<section id="perfil" hidden aria-labelledby="perfilTitle"><div class="band" style="position:absolute;inset:0 0 auto 0"></div><div class="wrap">
+ <header class="phead"><h2 id="perfilTitle">Este es tu perfil de evolución</h2><span id="rdate"></span></header>
+ <div class="phero">
+ <div class="profile" id="pCard"><svg viewBox="0 0 400 200" aria-hidden="true"><ellipse cx="200" cy="100" rx="185" ry="62" transform="rotate(-12 200 100)"/></svg>
+  <div class="ptop"><span class="ptag">#ForumEvoluciona</span></div>
+  <div class="pmain"><span class="pme">Mi perfil de evolución</span><h3 id="pName"></h3></div>
+  <div class="kpis"><div class="kpi"><small>Fortaleza principal</small><span class="kv" id="kTopPct"></span><b id="kTop"></b></div><div class="kpi"><small>Mi match con Forum</small><span class="kv" id="kMatch"></span><b>alineación con los principios</b></div></div>
+  <div class="ptops" id="pTops"></div>
+  <div class="pfoot"><b>Haz match con tu evolución</b><span>Instituto Forum · Universidad de La Sabana</span></div>
+ </div>
+ <div class="pside"><p class="pdesc" id="pDesc"></p></div>
+ </div>
+ <div class="blk"><h3>Tus competencias</h3><p class="bsub">Porcentaje alcanzado en cada dimensión, ordenado de mayor a menor.</p><div class="chart" id="bars" role="list" aria-label="Gráfico de barras de competencias"></div></div>
+ <div class="blk"><h3>Tus fortalezas</h3><div class="cards" id="strengths"></div></div>
+ <div class="blk"><h3>Estado final de la empresa</h3><div class="fin" id="fin"></div></div>
+ <div class="blk"><h3>Alineación humanista y tecnológica</h3><div class="idx" id="idx"></div><div class="cards" id="aligns"></div></div>
+ </div></section>
+
+<section id="programas" hidden aria-labelledby="progTitle"><div class="wrap">
+ <h2 id="progTitle">Programas que complementan tu evolución</h2>
+ <p class="sub">Según tu perfil, estos programas pueden ayudarte a seguir evolucionando.</p>
+ <div class="pgrid" id="progs"></div>
+</div></section>
+
+<section id="cierre" hidden><div class="wrap">
+ <div class="cta">
+  <svg class="cta-ring" viewBox="0 0 400 200" aria-hidden="true"><ellipse cx="200" cy="100" rx="185" ry="62" transform="rotate(-10 200 100)"/></svg>
+  <svg class="cta-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8a2 2 0 0 1 2-2h2.2l1.5-2h6.6l1.5 2H19a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><circle cx="12" cy="13" r="4"/></svg>
+  <p class="cta-text">Tómale una captura de imagen a tu tarjeta con tu perfil de evolución y compártela en tus redes con <span class="hash">#ForumEvoluciona</span> <span class="hash">#HazMatchConForum</span></p>
+  <p class="handle">@instituto_forum</p>
+  <a class="cta-back act" href="#pCard">Ver mi tarjeta</a>
+ </div>
+ <div class="row act" style="margin-top:30px"><button class="btn" id="dl">Descargar mi diagnóstico</button><button class="btn alt" id="again" style="border:2px solid var(--navy)">Reiniciar simulación</button></div>
+ <p class="disc">Este diagnóstico es orientativo y se basa en 4 decisiones dentro de una simulación con casos ficticios. No es una evaluación psicométrica. Para conocer la oferta vigente de programas, consulta al Instituto Forum de la Universidad de La Sabana.</p>
+</div></section>
+</main>
+
+<script>
+(function(){
+"use strict";
+var $=function(i){return document.getElementById(i)},L=["A","B","C","D"];
+var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* ---------- datos ---------- */
+var COMP={
+lid:{n:"Liderazgo y Habilidades Directivas",s:"Liderazgo directivo",d:"Liderazgo consciente, coaching de talento, gestión del cambio y decisiones éticas.",noun:"Líder Consciente",mod:"con Visión Directiva",st:"Movilizas personas: escuchas, desarrollas talento y conduces el cambio sin perder de vista la dignidad de tu equipo.",dv:"Fortalece tu capacidad para acompañar equipos en el cambio: coaching, conversaciones difíciles y liderazgo consciente.",rt:"Liderazgo consciente e inteligente, coaching y desarrollo de talento, gestión del cambio y toma de decisiones éticas."},
+com:{n:"Estrategia Comercial y Ventas",s:"Estrategia comercial",d:"Revenue growth, visión financiera, estrategia omnicanal y negociación.",noun:"Estratega Comercial",mod:"con Foco en Crecimiento Sostenible",st:"Traduces los dilemas en crecimiento: piensas en rentabilidad, canales y mercados con criterio financiero.",dv:"Incorpora más la mirada de ingresos y rentabilidad: estrategia omnicanal, revenue growth y negociación.",rt:"Revenue growth y visión financiera, estrategia omnicanal, negociación con impacto y contextos comerciales internacionales."},
+dig:{n:"Transformación Digital e Inteligencia Artificial",s:"Transformación digital e IA",d:"Adopción de IA, analítica, decisiones data-driven y metodologías ágiles.",noun:"Líder de Transformación Digital",mod:"con Enfoque Data-Driven",st:"Te apoyas en datos, pilotos ágiles e inteligencia artificial para decidir con evidencia y ejecutar rápido.",dv:"Integra más datos y tecnología al decidir: analítica, pilotos ágiles y adopción responsable de IA.",rt:"Adopción de IA y analítica avanzada, decisiones basadas en datos, metodologías ágiles y co-inteligencia."},
+proj:{n:"Gestión de Proyectos y Conocimiento Organizacional",s:"Gestión de proyectos",d:"Dirección 360° de proyectos, capital intelectual y conexión con el entorno.",noun:"Líder de Proyectos 360°",mod:"con Visión Integral",st:"Conviertes los problemas en planes: integras lo financiero, jurídico, ambiental y logístico, y documentas el aprendizaje.",dv:"Estructura más tus decisiones como proyectos: planeación por fases, gestión de riesgos y conocimiento organizacional.",rt:"Dirección 360° de proyectos, gestión del capital intelectual y proyectos con impacto real en el entorno."},
+cx:{n:"Experiencia del Cliente y Comportamiento del Consumidor",s:"Experiencia del cliente",d:"Diseño de experiencias (CX/EX), neuromarketing y comunicación estratégica.",noun:"Estratega de Experiencia",mod:"con Sensibilidad por el Cliente",st:"Pones al cliente y al colaborador en el centro: diseñas experiencias y comunicas para construir confianza.",dv:"Dale más peso a la experiencia de clientes y colaboradores: diseño de experiencias y comunicación estratégica.",rt:"Diseño de experiencias (CX y EX), neuromarketing y comunicación estratégica para la fidelización."}};
+var CO=["lid","com","dig","proj","cx"],RL=["Liderazgo","Comercial","Digital e IA","Proyectos","Cliente"];
+var PRIN={
+hum:{n:"Actitud humanizadora",sf:"y Sello Humanista",df:"Dignidad de la persona, ética, solidaridad y bien común.",alto:"Tus decisiones protegieron la dignidad de las personas y el bien común, incluso cuando había una alternativa más rápida o rentable.",medio:"Consideraste a las personas en varias decisiones, aunque a veces priorizaste la eficiencia inmediata.",bajo:"Tus decisiones se inclinaron hacia criterios financieros u operativos. Integrar a las personas afectadas las haría más sostenibles."},
+coi:{n:"Co-inteligencia",sf:"y Sello Co-inteligente",df:"Integración crítica, ética y estratégica de la tecnología e IA al servicio de las personas.",alto:"Usaste la tecnología y la IA como aliadas, con criterio ético y sin sustituir el juicio humano.",medio:"Aprovechaste la tecnología en algunas decisiones; hay espacio para integrarla de forma más crítica.",bajo:"La tecnología tuvo poco protagonismo o se usó sin salvaguardas. La co-inteligencia te ayudaría a decidir mejor."},
+ent:{n:"Conexión con el entorno",sf:"y Arraigo en el Entorno",df:"Resolución de problemas reales ligados al contexto social, productivo y comunitario.",alto:"Leíste el impacto más allá de la empresa: comunidad, proveedores, medio ambiente y contexto productivo.",medio:"Tuviste en cuenta el entorno en parte de tus decisiones; profundizar en el impacto social y ambiental ampliaría tu visión.",bajo:"Tus decisiones se concentraron en la organización. Mirar el contexto social y comunitario enriquecería tu criterio."},
+glo:{n:"Conexión global",sf:"y Mirada Global",df:"Visión internacional e intercultural para incidir a nivel local y global.",alto:"Mostraste una visión internacional e intercultural, capaz de conectar lo local con lo global.",medio:"Consideraste el contexto internacional; podrías explorar más la dimensión intercultural.",bajo:"La perspectiva internacional tuvo poca presencia. Una mirada intercultural abriría oportunidades."}};
+var PO=["hum","coi","ent","glo"];
+var S=[
+{th:"Reestructuración de equipo",t:"¿Recortas el 15% de la nómina?",cx:["Eres gerente de Grupo Altamira (900 colaboradores). Las ventas caen y la junta pide recortar el 15% del personal."],dl:"El clima es tenso y hay líderes clave a punto de irse.",o:[
+{t:"Recorte inmediato",d:"Despedir esta semana y proteger el margen.",c:{com:2,lid:1},p:{},k:[-25,18,-12],f:"La junta celebra el ahorro, pero varios líderes clave renuncian y el clima se resiente."},
+{t:"Rediseño con datos",d:"Rediseñar roles con datos y reentrenar talento.",c:{dig:3,proj:1},p:{coi:2,hum:1},k:[5,8,6],f:"Los datos revelan tareas automatizables; el ahorro llega más lento, pero con talento reubicado."},
+{t:"Diálogo y reconversión",d:"Ahorrar con los equipos; despidos solo como último recurso.",c:{lid:3,cx:1},p:{hum:3},k:[18,-4,8],f:"Los equipos proponen ahorros propios y la confianza sube; la junta pide ver resultados pronto."},
+{t:"Transformación por fases",d:"Plan por fases: impacto financiero, legal y social.",c:{proj:3,lid:1},p:{ent:2,hum:1},k:[6,6,10],f:"El plan por fases convence a la junta y deja metas claras cada trimestre."}]},
+{th:"Adopción de IA en ventas",t:"¿Cómo lanzas el agente de IA?",cx:["Un proveedor ofrece un agente de IA para atender clientes en un mes, entrenado con datos sin autorización."],dl:"Tu equipo comercial teme ser reemplazado.",o:[
+{t:"Lanzar ya",d:"Usar todos los datos, aun sin autorización, y ganar ventaja.",c:{dig:2,com:2},p:{},k:[-10,12,-18],f:"El agente sale rápido, pero el uso de datos sin autorización genera quejas y riesgo legal."},
+{t:"Piloto ágil con gobernanza",d:"Seis semanas, datos autorizados y supervisión humana.",c:{dig:3,proj:1},p:{coi:3,hum:1},k:[6,4,14],f:"El piloto muestra resultados medibles y evita riesgos con los datos."},
+{t:"IA como copiloto",d:"La IA apoya a los asesores; la atención sigue siendo humana.",c:{cx:3,dig:1},p:{coi:2,hum:2},k:[10,2,12],f:"Los asesores usan la IA como copiloto y los clientes sienten atención más cercana."},
+{t:"IA para vender más",d:"Priorizar ventas y ajustar precios con IA.",c:{com:3,dig:1},p:{coi:1},k:[-4,16,2],f:"La IA prioriza oportunidades y sube las ventas, aunque el equipo comercial sigue inquieto."}]},
+{th:"Crisis reputacional",t:"¿Cómo respondes a la crisis?",cx:["Un lote defectuoso se volvió viral. Jurídica recomienda no reconocer responsabilidad todavía."],dl:"Tienes 48 horas antes de que reaccionen tus aliados.",o:[
+{t:"Perfil bajo",d:"Comunicado técnico breve y esperar a que pase.",c:{proj:1,com:1},p:{},k:[-6,6,-20],f:"El silencio alimenta la polémica y los aliados comerciales piden explicaciones."},
+{t:"Responsabilidad y cercanía",d:"Reconocer el error y reponer a cada afectado.",c:{cx:3,lid:1},p:{hum:3,ent:1},k:[8,-8,16],f:"Reconocer el error cuesta dinero, pero recupera la confianza de clientes y medios."},
+{t:"Respuesta con datos",d:"Medir el sentimiento en tiempo real y priorizar casos.",c:{dig:3,cx:1},p:{coi:2},k:[2,0,10],f:"El análisis de sentimiento enfoca la respuesta en los casos más críticos."},
+{t:"Comité de crisis",d:"Rastrear la causa, corregir y documentar lecciones.",c:{proj:3,lid:1},p:{ent:2,hum:1},k:[5,-4,12],f:"El comité ubica la causa en el proveedor y deja un plan correctivo documentado."}]},
+{th:"Expansión y sostenibilidad",t:"¿Cómo entras a México?",cx:["Un marketplace te abre el mercado mexicano. El distribuidor más barato tiene denuncias ambientales y laborales."],dl:"La junta espera resultados el primer año.",o:[
+{t:"Margen primero",d:"Distribuidor barato ya; revisar sus prácticas después.",c:{com:3},p:{},k:[-8,16,-16],f:"Entras rápido y con buen margen, pero surgen denuncias sobre tu distribuidor."},
+{t:"Omnicanal responsable",d:"Aliados certificados y canales propios, con menor margen inicial.",c:{com:3,cx:1},p:{glo:3,ent:1},k:[4,2,14],f:"El margen inicial es menor, pero ganas aliados confiables y una marca respetada."},
+{t:"Equipo intercultural",d:"Talento mexicano y colombiano para adaptar la oferta.",c:{lid:3,cx:1},p:{glo:2,hum:2},k:[14,-6,8],f:"El equipo intercultural adapta la propuesta y fortalece el compromiso."},
+{t:"Entrada con evidencia",d:"Estudio del consumidor, huella ambiental y logística circular.",c:{proj:2,dig:2},p:{glo:2,ent:2},k:[4,4,12],f:"El estudio del consumidor y la huella ambiental dan una entrada sólida."}]}];
+/* ---------- programas (fuente: Modalidad_de_programas_Instituto_Forum.xlsx) ----------
+   n, t, m, s y u salen del Excel (nombre, tipo de hoja, modalidad, sedes y enlace).
+   c/p/f/fam: relación de cada programa con las dimensiones del simulador, asignada según su nombre. */
+var PROG=[{"n":"Especialización en Gerencia Estratégica de Marca","t":"Especialización","m":"Presencial","s":["Chía"],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gerencia-estrategica-de-marca-chia","c":{"com":2,"cx":2},"p":{},"f":"la gerencia estratégica de marca","fam":"marca"},{"n":"Especialización en Gerencia de Riesgos","t":"Especialización","m":"Presencial","s":[],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gerencia-de-riesgos-chia","c":{"proj":2},"p":{},"f":"la gerencia de riesgos","fam":"riesgos"},{"n":"Especialización en Liderazgo y Coaching","t":"Especialización","m":"Presencial","s":["Chía"],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-liderazgo-y-coaching-chia","c":{"lid":3},"p":{"hum":1},"f":"liderazgo y coaching","fam":"coaching"},{"n":"Especialización en Gestión del Conocimiento Organizacional","t":"Especialización","m":"Presencial","s":[],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gestion-del-conocimiento-organizacional","c":{"proj":3},"p":{},"f":"la gestión del conocimiento organizacional","fam":"conocimiento"},{"n":"Especialización en Gerencia de Proyectos con Enfoque en Habilidades Directivas","t":"Especialización","m":"Presencial","s":["Chía","Bogotá"],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gerencia-de-proyectos-con-enfoque-en-habilidades-directivas-chia","c":{"proj":3,"lid":2},"p":{},"f":"gerencia de proyectos con habilidades directivas","fam":"proyectos"},{"n":"Especialización en Gerencia Logística","t":"Especialización","m":"Presencial · Presencial - virtual (híbrida) · Virtual","s":["Barranquilla","Chía","Bucaramanga","Bogotá"],"u":"https://www.unisabana.edu.co/programa/posgrados/especializacion-en-gerencia-logistica","c":{"proj":1},"p":{},"f":"la gerencia logística","fam":"logistica"},{"n":"Especialización en Gerencia Estratégica","t":"Especialización","m":"Presencial - virtual (híbrida) · Virtual","s":["Bogotá","Chía","Barranquilla","Medellín","Bucaramanga","Ibagué","Villavicencio"],"u":"https://www.unisabana.edu.co/programa/posgrados/especializacion-en-gerencia-estrategica-chia","c":{"lid":2,"com":2,"proj":1},"p":{},"f":"la gerencia estratégica","fam":"estrategia"},{"n":"Especialización en Emprendimiento y Negocios Digitales","t":"Especialización","m":"Presencial - virtual (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-emprendimiento-y-negocios-digitales","c":{"dig":2,"com":2},"p":{},"f":"emprendimiento y negocios digitales","fam":"digital-neg"},{"n":"Especialización en Gerencia Comercial con énfasis en Ventas","t":"Especialización","m":"Presencial - virtual (híbrida)","s":["Chía","Bogotá","Barranquilla","Medellín","Bucaramanga","Ibagué","Villavicencio"],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gerencia-comercial","c":{"com":3},"p":{},"f":"la gerencia comercial con énfasis en ventas","fam":"ventas"},{"n":"Especialización en Gerencia de Producción y Operaciones","t":"Especialización","m":"Presencial - virtual (híbrida)","s":["Chía"],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gerencia-de-produccion-y-operaciones-chia","c":{"proj":2},"p":{},"f":"la gerencia de producción y operaciones","fam":"operaciones"},{"n":"Especialización en Gerencia del Desarrollo Sostenible en las Organizaciones","t":"Especialización","m":"Presencial - virtual (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gerencia-del-desarrollo-sostenible-de-las-organizaciones","c":{"proj":1,"lid":1},"p":{"ent":3},"f":"el desarrollo sostenible en las organizaciones","fam":"sostenible"},{"n":"Especialización en Gestión para el Desarrollo Humano en la Organización","t":"Especialización","m":"Presencial - virtual (híbrida)","s":["Bogotá","Chía","Bucaramanga"],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gestion-para-el-desarrollo-humano-en-la-organizacion-chia","c":{"lid":2,"cx":1},"p":{"hum":3},"f":"el desarrollo humano en la organización","fam":"talento"},{"n":"Especialización en Gerencia de la Experiencia del Cliente (antigua Esp. Gerencia del Servicio)","t":"Especialización","m":"Presencial - virtual (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gerencia-del-servicio","c":{"cx":3},"p":{},"f":"la gerencia de la experiencia del cliente","fam":"cx"},{"n":"Especialización en Finanzas Corporativas","t":"Especialización","m":"Presencial - virtual (híbrida)","s":["Chía"],"u":"https://www.unisabana.edu.co/programa/posgrados/especializacion-en-finanzas-corporativas","c":{"com":2},"p":{},"f":"las finanzas corporativas","fam":"finanzas"},{"n":"Especialización en Gerencia Financiera Internacional","t":"Especialización","m":"Presencial - virtual (híbrida)","s":["Chía","Bogotá"],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gerencia-financiera-internacional-bogota","c":{"com":2},"p":{"glo":2},"f":"la gerencia financiera internacional","fam":"finanzas"},{"n":"Especialización en Gerencia de Marketing Digital","t":"Especialización","m":"Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gerencia-de-marketing-digital-virtual","c":{"cx":2,"dig":2,"com":1},"p":{},"f":"la gerencia de marketing digital","fam":"mkt-digital"},{"n":"Especialización en Gestión de la Ciberseguridad","t":"Especialización","m":"Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/posgrados/especializacion-en-gestion-de-la-ciberseguridad","c":{"dig":2,"proj":1},"p":{},"f":"la gestión de la ciberseguridad","fam":"ciber"},{"n":"Diplomado en Compras Estratégicas","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-compras-estrategicas","c":{"com":1,"proj":1},"p":{},"f":"las compras estratégicas","fam":"compras"},{"n":"Diplomado en Marketing Estratégico 5.0: IA, Growth y Customer Intelligence","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado-en-marketing-estrategico-50-ia-growth-y-customer-intelligence","c":{"cx":2,"dig":2,"com":2},"p":{"coi":1},"f":"marketing estratégico con IA, growth y customer intelligence","fam":"mkt-ia"},{"n":"Curso en IA para líderes: la guía de los C-Levels para la transformación del negocio","t":"Curso","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/curso-en-ia-para-lideres-la-guia-de-los-c-levels-para-la-transformacion-del-negocio","c":{"dig":3,"lid":2},"p":{"coi":2},"f":"la IA para líderes y la transformación del negocio","fam":"ia-lider"},{"n":"Diplomado en Gerencia Comercial Aumentada: IA, Neurociencias y Ventas Inteligentes","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado-en-gerencia-comercial-aumentada-ia-neurociencias-y-ventas-inteligentes","c":{"com":3,"dig":1,"cx":1},"p":{"coi":1},"f":"ventas inteligentes con IA y neurociencias","fam":"ventas"},{"n":"Diplomado en La Felicidad: su impacto en lo personal y lo organizacional","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"","c":{"lid":1},"p":{"hum":3},"f":"la felicidad y su impacto personal y organizacional","fam":"felicidad"},{"n":"Diplomado en Liderazgo Predictivo en la era de la IA","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado-en-liderazgo-predictivo-en-la-era-de-la-ia","c":{"lid":3,"dig":2},"p":{"coi":2},"f":"el liderazgo predictivo en la era de la IA","fam":"ia-lider"},{"n":"Diplomado en Logística y Gerencia de la Cadena de Suministro","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado-en-logistica-y-gerencia-de-la-cadena-de-suministro","c":{"proj":1},"p":{},"f":"la logística y la cadena de suministro","fam":"logistica"},{"n":"Diplomado en Transformación de la Experiencia del Cliente para la Era digital con insignia","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado-en-gerencia-de-la-experiencia-del-cliente","c":{"cx":3,"dig":1},"p":{},"f":"la experiencia del cliente en la era digital","fam":"cx"},{"n":"Diplomado en Gerencia del Talento Humano","t":"Diplomado","m":"Presencial y Hyflex (híbrida) · Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-gerencia-del-talento-humano","c":{"lid":2},"p":{"hum":2},"f":"la gerencia del talento humano","fam":"talento"},{"n":"Diplomado en Gerencia de Proyectos con Preparación para el Examen en PMP Y certificación en la ISO 21502:2020","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-gerencia-de-proyectos-con-preparacion-para-el-examen-capm-y-pmp","c":{"proj":3},"p":{},"f":"gerencia de proyectos con preparación PMP","fam":"proyectos"},{"n":"Diplomado en SARLAFT y Compliance con certificación Auditor Interno","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-sarlaft-y-compliance-con-certificacion-auditor-interno-en-iso/iec-27001-2022-sistemas-de-seguridad-de-la-informacion","c":{"proj":1},"p":{},"f":"SARLAFT y compliance","fam":"compliance"},{"n":"Diplomado en Ciberseguridad - ISO 27001","t":"Diplomado","m":"Presencial y Hyflex (híbrida) · Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-ciberseguridad-iso-27001","c":{"dig":2},"p":{},"f":"la ciberseguridad bajo ISO 27001","fam":"ciber"},{"n":"Diplomado en Inteligencia Artificial Aplicada a los Negocios","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-inteligencia-artificial-aplicada-los-negocios","c":{"dig":3},"p":{"coi":2},"f":"la inteligencia artificial aplicada a los negocios","fam":"ia"},{"n":"Diplomado en Gerencia Estratégica de Marketing","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-gerencia-estrategica-de-marketing","c":{"com":2,"cx":2},"p":{},"f":"la gerencia estratégica de marketing","fam":"mkt"},{"n":"Diplomado en Coaching y Liderazgo Ejecutivo","t":"Diplomado","m":"Presencial y Hyflex (híbrida) · Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-coaching-y-liderazgo-ejecutivo-para-entornos-desafiantes","c":{"lid":3},"p":{"hum":1},"f":"coaching y liderazgo ejecutivo","fam":"coaching"},{"n":"Diplomado en Big Data + Data Science + Power BI con certificación","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-big-data-data-science-power-bi","c":{"dig":3},"p":{},"f":"big data, data science y Power BI","fam":"datos"},{"n":"Diplomado en Gerencia Estratégica de Costos y Presupuestos con IA","t":"Diplomado","m":"Presencial y Hyflex (híbrida)","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-gerencia-de-costos-y-presupuestos","c":{"com":2,"dig":1},"p":{},"f":"costos y presupuestos con IA","fam":"finanzas"},{"n":"Diplomado Finanzas para no financieros","t":"Diplomado","m":"Presencial y Hyflex (híbrida) · Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-finanzas-para-no-financieros","c":{"com":1},"p":{},"f":"finanzas para no financieros","fam":"finanzas"},{"n":"Diplomado en Gerencia Financiera","t":"Diplomado","m":"Presencial y Hyflex (híbrida) · Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-gerencia-financiera","c":{"com":2},"p":{},"f":"la gerencia financiera","fam":"finanzas"},{"n":"Diplomado en Transformación Digital Financiera con IA: Estrategias para CFO","t":"Diplomado","m":"Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado-en-transformacion-digital-financiera-con-ia-estrategias-para-cfo-virtual","c":{"dig":2,"com":2},"p":{"coi":1},"f":"la transformación digital financiera con IA","fam":"finanzas"},{"n":"Diplomado en IA y Analítica Avanzada para Modelos de Negocio Sostenibles","t":"Diplomado","m":"Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado-en-ia-y-analitica-avanzada-para-modelos-de-negocio-sostenibles-virtual","c":{"dig":3},"p":{"ent":2,"coi":1},"f":"IA y analítica para modelos de negocio sostenibles","fam":"ia"},{"n":"Diplomado en Metodologías Ágiles e innovación en la organización","t":"Diplomado","m":"Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado-en-metodologias-agiles-con-certificacion-en-scrum-master-cm-smc-virtual","c":{"dig":2,"proj":2},"p":{},"f":"metodologías ágiles e innovación","fam":"agil"},{"n":"Diplomado en Big Data + Data Science + Power BI","t":"Diplomado","m":"Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado-en-big-data-data-science-power-bi-virtual","c":{"dig":3},"p":{},"f":"big data, data science y Power BI","fam":"datos"},{"n":"Diplomado en Innovación y agilidad empresarial potenciada por IA con certificación SCRUM fundamentals (CM-SFC) 96 horas","t":"Diplomado","m":"Virtual","s":[],"u":"https://www.unisabana.edu.co/programas/educacion-continua/diplomado/diplomado-en-metodologias-agiles-e-innovacion-en-la-organizacion-con-certificacion-en-scrum-fundamentals-cm-sfc","c":{"dig":2,"proj":2},"p":{"coi":1},"f":"innovación y agilidad empresarial con IA","fam":"agil"},{"n":"Diplomado en Planeación Estratégica","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/negocios/planeacion-estrategica/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"proj":1,"lid":1,"com":1},"p":{},"f":"la planeación estratégica","fam":"estrategia"},{"n":"Diplomado en Marketing Digital","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/marketing/marketing-digital/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"cx":2,"dig":1},"p":{},"f":"el marketing digital","fam":"mkt-digital"},{"n":"Diplomado en Transformación Digital","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/tecnologia/transformacion-digital/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"dig":3},"p":{},"f":"la transformación digital","fam":"transf"},{"n":"Diplomado en Big Data y Business Analytics","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/tecnologia/big-data/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"dig":3},"p":{},"f":"big data y business analytics","fam":"datos"},{"n":"Diplomado en NIIF / NIC Normas Internacionales de Información Financiera","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/contabilidad-y-finanzas/niif/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"com":1},"p":{"glo":1},"f":"las normas internacionales de información financiera","fam":"finanzas"},{"n":"Diplomado en Gerencia de Riesgos","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/gerencia-de-riesgos/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"proj":2},"p":{},"f":"la gerencia de riesgos","fam":"riesgos"},{"n":"Diplomado en Logística y Gerencia de la Cadena de Abastecimiento","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/negocios/logistica/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"proj":1},"p":{},"f":"la logística y la cadena de abastecimiento","fam":"logistica"},{"n":"Diplomado en Gestión y Gerencia Empresarial","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/negocios/gerencia-empresarial/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"lid":1,"com":1,"proj":1},"p":{},"f":"la gestión y gerencia empresarial","fam":"estrategia"},{"n":"Diplomado en Gerencia de la Experiencia del Cliente","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/negocios/gerencia-experiencia-cliente/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"cx":3},"p":{},"f":"la gerencia de la experiencia del cliente","fam":"cx"},{"n":"Diplomado en Gerencia de Proyectos","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/negocios/gerencia-proyectos/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"proj":3},"p":{},"f":"la gerencia de proyectos","fam":"proyectos"},{"n":"Diplomado en Comunicación Estratégica","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/comunicacion/comunicacion-estrategica/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"cx":2,"lid":1},"p":{},"f":"la comunicación estratégica","fam":"comunicacion"},{"n":"Diplomado en Marketing Estratégico","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/marketing/marketing-estrategico/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"com":1,"cx":2},"p":{},"f":"el marketing estratégico","fam":"mkt"},{"n":"Diplomado en Gerencia de Ventas","t":"Diplomado","m":"Virtual","s":[],"u":"https://uvirtual.unisabana.edu.co/diplomados/marketing/gerencia-de-ventas/?utm_source=referral&utm_medium=sabana-institucional&utm_campaign=sabana-postgrados-seminarios","c":{"com":3},"p":{},"f":"la gerencia de ventas","fam":"ventas"}];
+function mx(k,g){return S.reduce(function(a,s){var m=0;s.o.forEach(function(o){m=Math.max(m,o[g][k]||0)});return a+m},0)}
+var MC={},MP={};CO.forEach(function(k){MC[k]=mx(k,"c")});PO.forEach(function(k){MP[k]=mx(k,"p")});
+var st={r:0,a:[],ind:[50,50,50],lock:false,done:false};
+/* ---------- utilidades ---------- */
+function cur(){var c={},p={};CO.forEach(function(k){c[k]=0});PO.forEach(function(k){p[k]=0});
+ st.a.forEach(function(ai,r){var o=S[r].o[ai];for(var k in o.c)c[k]+=o.c[k];for(var j in o.p)p[j]+=o.p[j]});
+ var cp={},pp={},pt=0,pm=0;CO.forEach(function(k){cp[k]=MC[k]?Math.round(c[k]/MC[k]*100):0});
+ PO.forEach(function(k){pp[k]=MP[k]?Math.round(p[k]/MP[k]*100):0;pt+=p[k];pm+=MP[k]});
+ return{c:c,p:p,cp:cp,pp:pp,al:Math.round(pt/pm*100)}}
+function rank(keys,pc,raw){return keys.slice().sort(function(a,b){return(pc[b]-pc[a])||(raw[b]-raw[a])||(keys.indexOf(a)-keys.indexOf(b))})}
+function lvl(p){return p>=60?"alto":(p>=30?"medio":"bajo")}var LB={alto:"Alto",medio:"Medio",bajo:"En desarrollo"};
+function hud(){for(var i=0;i<3;i++){var v=Math.max(0,Math.min(100,st.ind[i]));$("m"+i).style.width=v+"%";$("v"+i).textContent=v}
+ var s=cur();$("liveBars").innerHTML=CO.map(function(k,i){return'<div class="lb"><span>'+RL[i]+'</span><div class="mbar"><i style="width:'+s.cp[k]+'%"></i></div><b>'+s.cp[k]+'%</b></div>'}).join("")}
+function view(id){["vReady","vPlay","vDone"].forEach(function(v){$(v).hidden=(v!==id)})}
+/* ---------- simulación ---------- */
+function round(){var s=S[st.r];$("theme").textContent=s.th;$("rtag").innerHTML='Decisión <b>'+(st.r+1)+'</b> de '+S.length;$("pf").style.width=(st.r/S.length*100)+"%";
+ $("cTheme").textContent=s.th;$("cTitle").textContent=s.t;$("cCtx").innerHTML=s.cx.map(function(p){return"<p>"+p+"</p>"}).join("");$("cDil").textContent=s.dl;$("fb").innerHTML="";
+ var b=$("opts");b.className="opts";b.innerHTML="";
+ s.o.forEach(function(o,i){var e=document.createElement("button");e.type="button";e.className="opt";e.dataset.i=i;e.innerHTML='<span class="k">'+L[i]+'</span><span><strong>'+o.t+'</strong><span>'+o.d+'</span></span>';e.onclick=function(){pick(i)};b.appendChild(e)});st.lock=false}
+function pick(i){if(st.lock)return;st.lock=true;st.a[st.r]=i;var o=S[st.r].o[i];
+ $("opts").classList.add("lock");$("opts").querySelector('[data-i="'+i+'"]').classList.add("sel");
+ for(var j=0;j<3;j++)st.ind[j]+=o.k[j];hud();$("pf").style.width=((st.r+1)/S.length*100)+"%";
+ var last=st.r===S.length-1;$("fb").innerHTML='<div class="fb"><b>Consecuencia</b>'+o.f+'<br><button class="btn" id="nx">'+(last?"Ver resultados":"Siguiente decisión")+'</button></div>';
+ $("nx").onclick=function(){st.r++;if(!last){round();jump()}else finish()};$("nx").focus({preventScroll:true});$("fb").firstChild.scrollIntoView({block:"nearest"})}
+function jump(){window.scrollTo(0,Math.max(0,$("stage").getBoundingClientRect().top+window.scrollY-(window.innerWidth<900?76:96)))}
+function start(){st={r:0,a:[],ind:[50,50,50],lock:false,done:false};hud();view("vPlay");round();["perfil","programas","cierre"].forEach(function(i){$(i).hidden=true});$("simGrid").classList.remove("over");$("navDx").classList.add("lock");jump()}
+function finish(){st.done=true;view("vDone");doneView();$("simGrid").classList.add("over");jump();render();["perfil","programas","cierre"].forEach(function(i){$(i).hidden=false});$("navDx").classList.remove("lock");move()}
+function doneView(){var nm=["Clima laboral","Caja","Reputación"];
+ $("doneInd").innerHTML=st.ind.map(function(raw,i){var v=Math.max(0,Math.min(100,raw)),d=v-50,lb=v>=65?["Fortalecido","up"]:(v>=40?["Estable","eq"]:["En riesgo","low"]);
+  return'<div class="di '+lb[1]+'"><span class="dn">'+nm[i]+'</span><span class="dv">'+v+'<small>/100</small></span><div class="mbar"><i style="width:'+v+'%"></i></div><span class="ds">'+lb[0]+' · '+(d>0?"+":"")+d+' vs. inicio</span></div>'}).join("")}
+function recommend(s,cr,pr){var t1=cr[0],t2=cr[1],lo=cr[cr.length-1],tp=pr[0],lp=pr[pr.length-1],used={},fam={},out=[];
+ function w(o,k){return o.c[k]||0}function pw(o,k){return o.p[k]||0}
+ function best(fn,ok){var b=null,bs=-1;PROG.forEach(function(o,i){if(used[i]||fam[o.fam]||!ok(o))return;var v=fn(o);if(v>bs){bs=v;b=i}});if(b!==null){used[b]=1;fam[PROG[b].fam]=1}return b}
+ var A=best(function(o){return 10*w(o,t1)+2*w(o,t2)+pw(o,tp)},function(o){return w(o,t1)>0});
+ var B=best(function(o){return 6*Math.min(w(o,t1),w(o,t2))+4*w(o,t2)+w(o,t1)+pw(o,tp)},function(o){return w(o,t2)>0});
+ var C=best(function(o){return 10*w(o,lo)+2*pw(o,lp)-w(o,t1)},function(o){return w(o,lo)>0});
+ var S1=COMP[t1].s,S2=COMP[t2].s,SL=COMP[lo].s;
+ function lc(x){return x.toLowerCase().replace(/\bia\b/g,"IA")}
+ if(A!==null)out.push({i:A,l:"Potencia tu fortaleza",x:function(o){return"Tu fortaleza principal es "+lc(S1)+" ("+s.cp[t1]+"%). Su foco en "+o.f+" la lleva a un nivel directivo."}});
+ if(B!==null)out.push({i:B,l:"Conecta tus fortalezas",x:function(o){return w(o,t1)>0?"Combinas "+lc(S1)+" y "+lc(S2)+" ("+s.cp[t2]+"%). Su foco en "+o.f+" une ambas dimensiones.":"Tu segunda fortaleza es "+lc(S2)+" ("+s.cp[t2]+"%). Su foco en "+o.f+" la consolida."}});
+ if(C!==null)out.push({i:C,l:"Desarrolla tu oportunidad",x:function(o){return SL+" fue tu dimensión más baja ("+s.cp[lo]+"%). Su foco en "+o.f+" te ayuda a desarrollarla"+(pw(o,lp)>0?" y a fortalecer tu "+PRIN[lp].n.toLowerCase()+".":".")}});
+ $("progs").innerHTML=out.map(function(r,n){var o=PROG[r.i],sd=o.s.length>3?o.s.slice(0,2).join(", ")+" y "+(o.s.length-2)+" sedes más":o.s.join(", ");
+  return'<article class="pcard"><div class="ptop2"><span class="pnum">0'+(n+1)+'</span><span class="plab">'+r.l+'</span></div><h3>'+o.n+'</h3><p>'+r.x(o)+'</p><div class="pmeta"><span>'+o.m+(sd?" · "+sd:"")+'</span>'+(o.u?'<a href="'+o.u+'" target="_blank" rel="noopener">Ver programa →</a>':'')+'</div></article>'}).join("")}
+/* ---------- diagnóstico ---------- */
+function render(){var s=cur(),cr=rank(CO,s.cp,s.c),pr=rank(PO,s.pp,s.p),t1=cr[0],t2=cr[1],tp=pr[0];
+ var nm=COMP[t1].noun+" "+COMP[t2].mod;if(s.p[tp]>0)nm+=" "+PRIN[tp].sf;$("pName").textContent=nm;
+ var a=COMP[t1].s.toLowerCase(),b=COMP[t2].s.toLowerCase();
+ $("pDesc").textContent=s.al>=55?"Combinas "+a+" y "+b+" con una fuerte coherencia con los principios humanistas de Forum: buscas resultados sin sacrificar a las personas ni el entorno.":s.al>=30?"Tu perfil se apoya en "+a+" y "+b+". Buscas equilibrio entre resultados y personas, con espacio para integrar más la mirada humanista y tecnológica.":"Tu perfil se orienta a la ejecución y los resultados, con énfasis en "+a+". Integrar criterios éticos, tecnológicos y de impacto en el entorno hará tus decisiones más sostenibles.";
+ $("rdate").textContent="Generado el "+new Date().toLocaleDateString("es-CO",{day:"numeric",month:"long",year:"numeric"});
+ $("bars").innerHTML=cr.map(function(k,i){return'<div class="bar-row'+(i<3?" top":"")+'" role="listitem"><span class="rk">'+(i+1)+'</span><div class="n">'+COMP[k].s+'<small>'+COMP[k].n+'</small></div><div class="bar" role="img" aria-label="'+COMP[k].n+': '+s.cp[k]+'%"><i data-w="'+s.cp[k]+'"></i></div><div class="pct">'+s.cp[k]+'%</div></div>'}).join("");
+ $("pTops").innerHTML=cr.slice(0,3).map(function(k){return'<div class="pt"><span>'+COMP[k].s+'</span><b>'+s.cp[k]+'%</b><div class="pb"><i style="width:'+s.cp[k]+'%"></i></div></div>'}).join("");$("kTop").textContent=COMP[t1].s;$("kTopPct").textContent=s.cp[t1]+"%";$("kMatch").textContent=s.al+"%";
+ var n=s.cp[cr[3]]>=45?4:3;$("strengths").innerHTML=cr.slice(0,n).map(function(k){return'<div class="c"><b>'+COMP[k].s+'</b><p>'+COMP[k].st+'</p></div>'}).join("");
+ var nmz=["Clima laboral","Caja","Reputación"];$("fin").innerHTML=st.ind.map(function(v,i){return"<span>"+nmz[i]+": <b>"+Math.max(0,Math.min(100,v))+"</b>/100</span>"}).join("");
+ $("idx").innerHTML='<div class="num" id="num">0%</div><p style="margin:0"><strong style="color:var(--navy)">Tu match con Forum.</strong> Grado en que tus decisiones integraron los cuatro principios institucionales.</p>';
+ $("aligns").innerHTML=PO.map(function(k){var l=lvl(s.pp[k]);return'<div class="c"><b>'+PRIN[k].n+'<span class="lv '+l+'">'+LB[l]+'</span></b><p>'+PRIN[k][l]+'</p></div>'}).join("");
+ recommend(s,cr,pr);fill(s)}
+function fill(s){Array.prototype.forEach.call(document.querySelectorAll(".bar i"),function(e){e.style.width="0"});
+ setTimeout(function(){Array.prototype.forEach.call(document.querySelectorAll(".bar i"),function(e){e.style.width=e.dataset.w+"%"})},400);
+ var el=$("num"),t0=performance.now();(function f(t){var p=reduce?1:Math.min(1,(t-t0)/1200);el.textContent=Math.round(s.al*p)+"%";if(p<1)requestAnimationFrame(f)})(t0)}
+/* ---------- menú ---------- */
+var links=Array.prototype.slice.call(document.querySelectorAll("#menu a"));
+function move(){var y=window.scrollY+130,cu=links[0];links.forEach(function(a){var s=document.querySelector(a.getAttribute("href"));if(s&&!s.hidden&&s.offsetTop<=y)cu=a});
+ links.forEach(function(a){a.classList.toggle("on",a===cu)});$("ind").style.left=cu.offsetLeft+"px";$("ind").style.width=cu.offsetWidth+"px"}
+window.addEventListener("scroll",move,{passive:true});window.addEventListener("resize",move);
+$("burger").onclick=function(){var o=$("nav").classList.toggle("open");this.setAttribute("aria-expanded",o)};
+links.forEach(function(a){a.onclick=function(e){$("nav").classList.remove("open");$("burger").setAttribute("aria-expanded","false");
+ if(a.id==="navDx"&&!st.done){e.preventDefault();$("simulador").scrollIntoView()}}});
+/* ---------- eventos ---------- */
+(function(){var f=$("fixcta");if(f&&"IntersectionObserver" in window){new IntersectionObserver(function(x){f.classList.toggle("off",!x[0].isIntersecting)},{threshold:.3}).observe($("inicio"))}})();
+$("heroStart").onclick=start;$("startBtn").onclick=start;$("seeDx").onclick=function(){$("perfil").scrollIntoView()};
+$("again").onclick=start;
+$("dl").onclick=function(){fill(cur());var p=document.title;document.title="Diagnostico-Forum-ExecSim";window.print();setTimeout(function(){document.title=p},1000)};
+document.addEventListener("keydown",function(e){if(st.lock||$("vPlay").hidden)return;var i=L.indexOf((e.key||"").toUpperCase());if(i>-1&&i<4)pick(i)});
+hud();view("vReady");move();if(reduce&&$("hring").pauseAnimations)$("hring").pauseAnimations();
+})();
+</script>
+</body>
+</html>
